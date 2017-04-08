@@ -1,0 +1,12 @@
+{
+  "name": "js-dev-env",
+  "version": "1.0.0",
+  "description": "Development environment for new js projects",
+  "main": "index.js",
+  "author": "Pavel Smirnov <mrpsmirnov@yandex.ru>",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {
+    "express": "^4.15.2"
+  }
+}
