@@ -1,4 +1,3 @@
-import webpack from 'webpack';
 import path from 'path';
 
 export default {
@@ -38,6 +37,6 @@ export default {
           { loader: 'postcss-loader' },
         ],
       },
-    ]
-  }
-}
+    ],
+  },
+};

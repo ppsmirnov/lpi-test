@@ -4,11 +4,14 @@
   "description": "Development environment for new js projects",
   "scripts": {
     "prestart": "babel-node buildScripts/startMessage.js",
-    "start": "npm-run-all --parallel security-check open:src",
+    "start": "npm-run-all --silent --parallel security-check open:src lint",
     "open:src": "babel-node buildScripts/srcServer.js",
+    "lint": "esw -w --color",
     "security-check": "nsp check",
     "localtunnel": "lt --port 3000",
-    "share": "npm-run-all --parallel open:src localtunnel"
+    "share": "npm-run-all --parallel open:src localtunnel",
+    "test": "jest",
+    "test:watch": "npm run test -- --watch"
   },
   "main": "index.js",
   "author": "Pavel Smirnov <mrpsmirnov@yandex.ru>",
@@ -28,6 +31,9 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3",
+    "eslint-watch": "^3.0.1",
+    "jest": "^19.0.2",
+    "jsdom": "^9.12.0",
     "localtunnel": "^1.8.2",
     "npm-run-all": "^4.0.2",
     "nsp": "^2.6.3",
