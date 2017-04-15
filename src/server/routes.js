@@ -7,11 +7,13 @@ const apiRouter = express.Router();
 
 mongoose.connect('mongodb://localhost/lpiAPI');
 
-apiRouter.get('/hello', (req, res) => {
-  res.end('Hello world!');
-});
-
 apiRouter.route('/questions')
+  .post((req, res) => {
+    const question = new Question(req.body);
+
+    question.save();
+    res.status(201).send(question);
+  })
   .get((req, res) => {
     const query = {};
 

@@ -1,6 +1,8 @@
 import express from 'express';
 import path from 'path';
 import webpack from 'webpack';
+import bodyParser from 'body-parser';
+
 import config from '../webpack.config.dev';
 import apiRouter from '../src/server/routes';
 
@@ -18,6 +20,9 @@ app.use(require('webpack-dev-middleware')(compiler, {
   },
 }));
 
+app.use(bodyParser.urlencoded());
+app.use(bodyParser.json());
+
 app.use('/api', apiRouter);
 
 app.get('/', (req, res) => {
@@ -25,6 +30,7 @@ app.get('/', (req, res) => {
 });
 
 app.listen(port, (err) => {
+  console.log('App working');
   if (err) {
     console.log(err);
   }

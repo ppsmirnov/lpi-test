@@ -64,6 +64,7 @@
     "webpack-md5-hash": "^0.0.5"
   },
   "dependencies": {
+    "body-parser": "^1.17.1",
     "express": "^4.15.2",
     "isomorphic-fetch": "^2.2.1",
     "mongoose": "^4.9.4",
