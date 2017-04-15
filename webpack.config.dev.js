@@ -1,4 +1,5 @@
 import path from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 export default {
   devtool: 'inline-source-map',
@@ -14,7 +15,12 @@ export default {
   devServer: {
     contentBase: path.resolve(__dirname, 'src'),
   },
-  plugins: [],
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'src/index.html',
+      inject: true,
+    }),
+  ],
   module: {
     rules: [
       {
