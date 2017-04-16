@@ -4,8 +4,8 @@ import express from 'express';
 import mongoose from 'mongoose';
 
 import Question from './models/questionModel';
-import questionControllerMoudule from './controllers/questionController';
-const questionController = questionControllerMoudule(Question);
+import questionControllerModule from './controllers/questionController';
+const questionController = questionControllerModule(Question);
 
 const apiRouter = express.Router();
 

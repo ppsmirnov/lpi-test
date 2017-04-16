@@ -1,4 +1,4 @@
-import questionControllerMoudule from './questionController';
+import questionControllerModule from './questionController';
 
 describe('Question controller tests', () => {
   describe('Post tests', () => {
@@ -18,7 +18,7 @@ describe('Question controller tests', () => {
         send: jest.fn(),
       };
 
-      const questionController = questionControllerMoudule(Question);
+      const questionController = questionControllerModule(Question);
       questionController.post(req, res);
 
       // expect(res.status.mock.calls[0][0]).toBe(400);
