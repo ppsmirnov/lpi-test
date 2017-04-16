@@ -4,7 +4,7 @@
   "env": {
       "browser": true,
       "node": true,
-      "mocha": true
+      "jest/globals": true
   },
   "rules": {
     "no-console": 0,
@@ -19,5 +19,6 @@
     "react/forbid-prop-types": 0,
     "react/require-default-props": 0,
     "react/no-multi-comp": 0
-  }
+  },
+  "plugins": [ "jest" ]
 }

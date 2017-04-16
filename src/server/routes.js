@@ -4,32 +4,16 @@ import express from 'express';
 import mongoose from 'mongoose';
 
 import Question from './models/questionModel';
+import questionControllerMoudule from './controllers/questionController';
+const questionController = questionControllerMoudule(Question);
 
 const apiRouter = express.Router();
 
 mongoose.connect('mongodb://localhost/lpiAPI');
 
 apiRouter.route('/questions')
-  .post((req, res) => {
-    const question = new Question(req.body);
-
-    question.save();
-    res.status(201).send(question);
-  })
-  .get((req, res) => {
-    const query = {};
-
-    if (req.query.exam) {
-      query.exam = req.query.exam;
-    }
-
-    Question.find(query, (err, questions) => { //eslint-disable-line
-      if (err) {
-        res.status(500).send(err);
-      }
-      res.json(questions);
-    });
-  });
+  .post(questionController.post)
+  .get(questionController.get);
 
 apiRouter.use('/questions/:questionId', (req, res, next) => {
   Question.findById(req.params.questionId, (err, question) => { //eslint-disable-line
